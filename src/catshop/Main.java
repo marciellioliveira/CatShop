@@ -12,13 +12,7 @@ import javax.swing.JOptionPane;
  * @author Marcielli
  */
 public class Main extends javax.swing.JFrame implements ActionListener{ //1
-    
-       
 
-    /**
-     * Creates new form Main
-     */
-    
     private String qntClicks;
     private int count = 0;
     private int i;
@@ -26,24 +20,24 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
     private String message = "Deseja Jogar?";
     private String title = "CatShop";
     
-    
     Random gerarNumClicks = new Random(); 
-    
-    
     
     public Main() {
         
         initComponents();
 
         jButtonClicks.addActionListener(this); //2       
-                
         
         int reply = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
         if(reply == JOptionPane.YES_OPTION) {
             //abre o jogo
-            jLabelObjetivoJogo.setText("0");
-            jLabelNivel.setText("0");
-            JOptionPane.showMessageDialog(null, "Boa Sorte!");
+//            jLabelObjetivoJogo.setText("0");
+//            jLabelNivel.setText("1");
+//            JOptionPane.showMessageDialog(null, "Boa Sorte!");
+                        int aleatorioNum0 = gerarNumClicks.nextInt(10)+10;  
+                        jLabelObjetivoJogo.setText(""+aleatorioNum0);
+                       // numAle = Integer.toString(aleatorioNum0);
+                        jLabelNivel.setText("1");  
             
         } else {
             
@@ -51,11 +45,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
             System.exit(0);
             
         }
-        
-    
     }
-    
-        
     
     
     @Override
@@ -85,10 +75,10 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
                 switch (jLabelNivel.getText()) {
                     
                     case "0":                    
-                        int aleatorioNum0 = gerarNumClicks.nextInt(10)+10;  
-                        jLabelObjetivoJogo.setText(""+aleatorioNum0);
-                       // numAle = Integer.toString(aleatorioNum0);
-                        jLabelNivel.setText("1");                    
+//                        int aleatorioNum0 = gerarNumClicks.nextInt(10)+10;  
+//                        jLabelObjetivoJogo.setText(""+aleatorioNum0);
+//                       // numAle = Integer.toString(aleatorioNum0);
+//                        jLabelNivel.setText("1");                    
                     break;
                     
                     case "1":    
