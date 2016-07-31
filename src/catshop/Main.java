@@ -2,6 +2,7 @@ package catshop;
 
 import configuracao.Configuracao;
 import escolheranimal.EscolherAnimal;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -23,6 +24,8 @@ public class Main extends javax.swing.JFrame implements ActionListener{
     private double valor = 0.00;
     private final double real = 1.00;
     private final double centavo = 0.01;
+    
+    private double valorCompra = 50.0; //?
 
     
     Random gerarNumClicks = new Random(); 
@@ -42,6 +45,9 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                        // numAle = Integer.toString(aleatorioNum0);
                         jLabelNivel.setText("1");  
                         jLabelQntDinheiro.setText(""+valor);
+                        jLabelMsgPodeComprar.setText("Compra trancada!");
+                        jLabelMsgPodeComprar.setForeground(Color.red);
+                        
         } else {
             
             JOptionPane.showMessageDialog(null, "Tchau.");
@@ -70,10 +76,16 @@ public class Main extends javax.swing.JFrame implements ActionListener{
              
                 int objJogo = Integer.parseInt(""+jLabelObjetivoJogo.getText());      
                 
-                int numAleaAnterior;
-               
-               for(int i=0; i<10; i++) {
+               for(i=0; i<10; i++) {
 
+                double qntValor = Double.parseDouble(jLabelQntDinheiro.getText());
+                
+                if(qntValor > 0.50) {
+                    
+                    jLabelMsgPodeComprar.setText("Compre-me!");
+                    jLabelMsgPodeComprar.setForeground(Color.green);
+                    
+                }
 
                 switch (jLabelNivel.getText()) {
                     
