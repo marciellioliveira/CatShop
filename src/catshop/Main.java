@@ -5,6 +5,7 @@ import escolheranimal.EscolherAnimal;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -25,11 +26,10 @@ public class Main extends javax.swing.JFrame implements ActionListener{
     private final double real = 1.00;
     private final double centavo = 0.01;
     
-    private double valorCompraAutoClick = 0.50; //?
+    private final double valorCompraAutoClick = 0.50; //?
     private double compra;
     private double cents1, cents2, cents3, cents4, cents5, cents6, cents7, cents8, cents9, cents10;
-   private double somaDinheiro;
-
+    private double somaDinheiro;
     
     Random gerarNumClicks = new Random(); 
     
@@ -57,8 +57,8 @@ public class Main extends javax.swing.JFrame implements ActionListener{
             System.exit(0);
             
         }
+        
     }
-    
     
     @Override
     public void actionPerformed(ActionEvent e) {         
@@ -78,16 +78,11 @@ public class Main extends javax.swing.JFrame implements ActionListener{
              
                 int objJogo = Integer.parseInt(""+jLabelObjetivoJogo.getText());      
                 
+                DecimalFormat decimal = new DecimalFormat( "0.00" );
+                
                for(i=0; i<10; i++) {
 
-                double qntValor = Double.parseDouble(jLabelQntDinheiro.getText());
-                
-                if(qntValor > 0.50) {
-                    
-                    jLabelMsgPodeComprar.setText("Compre-me!");
-                    jLabelMsgPodeComprar.setForeground(Color.green);
-                    
-                } 
+                   //tava aqui
 
                 switch (jLabelNivel.getText()) {
                     
@@ -100,15 +95,15 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                         int aleatorioNum1 = gerarNumClicks.nextInt(objJogo1)+(objJogo1+20);                     
                         if(objJogo1 - count == 0) {
                             
-                            double objJogo1Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());                         
-                          
+                            double objJogo1Double = Integer.parseInt(""+jLabelObjetivoJogo.getText()); 
+                            
                             cents1 = objJogo1Double/100;
                             somaDinheiro = valor + cents1;
-                                                        
+                                                           
                             jLabelObjetivoJogo.setText(""+aleatorioNum1);
                             jLabelNivel.setText("2");
                             
-                            jLabelQntDinheiro.setText(""+(somaDinheiro));   
+                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));   
                             
                         }
                     break;
@@ -118,15 +113,16 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                         int aleatorioNum2 = gerarNumClicks.nextInt(objJogo2)+(objJogo2+30);
                         if(objJogo2 - count == 0) {
                             
-                            double objJogo2Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());                       
-                          
+                            double objJogo2Double = Integer.parseInt(""+jLabelObjetivoJogo.getText()); 
+                            
                             cents2 = objJogo2Double / 100; 
                             somaDinheiro = somaDinheiro + cents2;
-                            
+                                            
                             jLabelObjetivoJogo.setText(""+aleatorioNum2);
                             jLabelNivel.setText("3");
                             
-                            jLabelQntDinheiro.setText(""+(somaDinheiro));  
+                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro)); 
+                            
                             
                         }
                     break;
@@ -136,15 +132,15 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                         int aleatorioNum3 = gerarNumClicks.nextInt(objJogo3)+(objJogo3+40);                        
                         if(objJogo3 - count == 0) {
                             
-                        double objJogo3Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());                      
+                        double objJogo3Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());  
                         
                             cents3 = objJogo3Double/100;
                             somaDinheiro = somaDinheiro + cents3;
-                                
+                             
                             jLabelObjetivoJogo.setText(""+aleatorioNum3);
                             jLabelNivel.setText("4");
                             
-                            jLabelQntDinheiro.setText(""+(somaDinheiro));  
+                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));  
                             
                         }
                     break;
@@ -154,15 +150,16 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                         int aleatorioNum4 = gerarNumClicks.nextInt(objJogo4)+(objJogo4+50); 
                         if(objJogo4 - count == 0) {
                             
-                            double objJogo4Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());                           
+                            double objJogo4Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());  
                             
                             cents4 = objJogo4Double / 100;
                             somaDinheiro = somaDinheiro + cents4;
-                                
+                                                              
                             jLabelObjetivoJogo.setText(""+aleatorioNum4);
                             jLabelNivel.setText("5");
+                        
                             
-                            jLabelQntDinheiro.setText(""+(somaDinheiro));  
+                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));  
                             
                         }
                     break;
@@ -176,11 +173,11 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             
                             cents5 = objJogo5Double / 100;
                             somaDinheiro = somaDinheiro + cents5;
-                                                            
+                                                      
                             jLabelObjetivoJogo.setText(""+aleatorioNum5);
                             jLabelNivel.setText("6");
                             
-                            jLabelQntDinheiro.setText(""+(somaDinheiro));
+                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));
                             
                         }
                     break;
@@ -190,14 +187,15 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                         int aleatorioNum6 = gerarNumClicks.nextInt(objJogo6)+(objJogo6+70);  
                         if(objJogo6 - count == 0) {
  
-                            double objJogo6Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());                          
-                            cents6 = objJogo6Double / 100;
-                            somaDinheiro = somaDinheiro + cents6;    
+                            double objJogo6Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());
                             
+                            cents6 = objJogo6Double / 100;
+                            somaDinheiro = somaDinheiro + cents6;
+                                                     
                             jLabelObjetivoJogo.setText(""+aleatorioNum6);
                             jLabelNivel.setText("7");
                             
-                            jLabelQntDinheiro.setText(""+(somaDinheiro));
+                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));
                             
                         }
                     break;
@@ -207,14 +205,15 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                         int aleatorioNum7 = gerarNumClicks.nextInt(objJogo7)+(objJogo7+80);
                         if(objJogo7 - count == 0) {
                      
-                            double objJogo7Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());                      
+                            double objJogo7Double = Integer.parseInt(""+jLabelObjetivoJogo.getText()); 
+                            
                             cents7 = objJogo7Double / 100;
                             somaDinheiro = somaDinheiro + cents7;    
-                            
+                                                                                 
                             jLabelObjetivoJogo.setText(""+aleatorioNum7);
                             jLabelNivel.setText("8");
                             
-                            jLabelQntDinheiro.setText(""+(somaDinheiro));
+                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));
                             
                         }
                     break;
@@ -224,14 +223,15 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                         int aleatorioNum8 = gerarNumClicks.nextInt(objJogo8)+(objJogo8+90);
                         if(objJogo8 - count == 0) {
                             
-                            double objJogo8Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
+                            double objJogo8Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());  
+                            
                             cents8 = objJogo8Double / 100;
                             somaDinheiro = somaDinheiro + cents8;    
-                            
+                                                     
                             jLabelObjetivoJogo.setText(""+aleatorioNum8);
                             jLabelNivel.setText("9");
                             
-                            jLabelQntDinheiro.setText(""+(somaDinheiro));
+                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));
                             
                         }
                     break;
@@ -241,14 +241,15 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                         int aleatorioNum9 = gerarNumClicks.nextInt(objJogo9)+objJogo9+100; 
                         if(objJogo9 - count == 0) {
                 
-                            double objJogo9Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());                    
+                            double objJogo9Double = Integer.parseInt(""+jLabelObjetivoJogo.getText()); 
+                            
                             cents9 = objJogo9Double / 100;
                             somaDinheiro = somaDinheiro + cents9;    
-                            
+                                                    
                             jLabelObjetivoJogo.setText(""+aleatorioNum9);
                             jLabelNivel.setText("10");
                             
-                            jLabelQntDinheiro.setText(""+(somaDinheiro));
+                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));
                             
                         }
                     break;
@@ -258,14 +259,15 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                         int aleatorioNum10 = gerarNumClicks.nextInt(objJogo10)+(objJogo10+110);
                         if(objJogo10 - count == 0) {
                 
-                            double objJogo10Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());                       
+                            double objJogo10Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());
+                            
                             cents10 = objJogo10Double / 100;
                             somaDinheiro = somaDinheiro + cents10;    
-                            
+                                                    
                             jLabelObjetivoJogo.setText(""+aleatorioNum10);
                             jLabelNivel.setText("11");
                             
-                            jLabelQntDinheiro.setText(""+(somaDinheiro));
+                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));
                             
                         }
                     break;
@@ -658,8 +660,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
 
 
     private void jButtonClicksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClicksActionPerformed
-        
-            
 
     }//GEN-LAST:event_jButtonClicksActionPerformed
 
@@ -789,5 +789,8 @@ public class Main extends javax.swing.JFrame implements ActionListener{
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
 
+    /**
+     * @return the arredondarValor
+     */
 
 }
