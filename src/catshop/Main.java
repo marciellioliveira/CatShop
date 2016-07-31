@@ -11,14 +11,19 @@ import javax.swing.JOptionPane;
  *
  * @author Marcielli
  */
-public class Main extends javax.swing.JFrame implements ActionListener{ //1
+public class Main extends javax.swing.JFrame implements ActionListener{ 
 
     private String qntClicks;
     private int count = 0;
     private int i;
     private String numAle;
-    private String message = "Deseja Jogar?";
-    private String title = "CatShop";
+    private final String message = "Deseja Jogar?";
+    private final String title = "CatShop";
+    
+    private double valor = 0.00;
+    private final double real = 1.00;
+    private final double centavo = 0.01;
+
     
     Random gerarNumClicks = new Random(); 
     
@@ -26,19 +31,17 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
         
         initComponents();
 
-        jButtonClicks.addActionListener(this); //2       
+        jButtonClicks.addActionListener(this);        
         
         int reply = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
         if(reply == JOptionPane.YES_OPTION) {
-            //abre o jogo
-//            jLabelObjetivoJogo.setText("0");
-//            jLabelNivel.setText("1");
-//            JOptionPane.showMessageDialog(null, "Boa Sorte!");
+
+            JOptionPane.showMessageDialog(null, "Boa Sorte!");
                         int aleatorioNum0 = gerarNumClicks.nextInt(10)+10;  
                         jLabelObjetivoJogo.setText(""+aleatorioNum0);
                        // numAle = Integer.toString(aleatorioNum0);
                         jLabelNivel.setText("1");  
-            
+                        jLabelQntDinheiro.setText(""+valor);
         } else {
             
             JOptionPane.showMessageDialog(null, "Tchau.");
@@ -49,7 +52,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
     
     
     @Override
-    public void actionPerformed(ActionEvent e) { //3        
+    public void actionPerformed(ActionEvent e) {         
         
         boolean statusBtn=false;
         
@@ -74,119 +77,166 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
 
                 switch (jLabelNivel.getText()) {
                     
-                    case "0":                    
-//                        int aleatorioNum0 = gerarNumClicks.nextInt(10)+10;  
-//                        jLabelObjetivoJogo.setText(""+aleatorioNum0);
-//                       // numAle = Integer.toString(aleatorioNum0);
-//                        jLabelNivel.setText("1");                    
+                    case "0":       //Nível 1
+                           //Está sendo iniciado no Construtor
                     break;
                     
-                    case "1":    
+                    case "1":    //Nível 2
                         int objJogo1 = Integer.parseInt(""+jLabelObjetivoJogo.getText());    
                         int aleatorioNum1 = gerarNumClicks.nextInt(objJogo1)+(objJogo1+20);                     
                         if(objJogo1 - count == 0) {
                             
+                            double meowClickCents1 = Double.parseDouble(jLabelClicks.getText());                            
+                            double cents1 = meowClickCents1 / 100;   
+                                                        
                             jLabelObjetivoJogo.setText(""+aleatorioNum1);
                             jLabelNivel.setText("2");
+                            
+                            jLabelQntDinheiro.setText(""+(valor+cents1));                           
                             
                         }
                     break;
                     
-                    case "2":
+                    case "2":      //Nível 3
                         int objJogo2 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
                         int aleatorioNum2 = gerarNumClicks.nextInt(objJogo2)+(objJogo2+30);
                         if(objJogo2 - count == 0) {
+                            
+                            double meowClickCents2 = Double.parseDouble(jLabelClicks.getText());                            
+                            double cents2 = meowClickCents2 / 100;   
                                 
                             jLabelObjetivoJogo.setText(""+aleatorioNum2);
                             jLabelNivel.setText("3");
                             
+                            jLabelQntDinheiro.setText(""+(valor+cents2));  
+                            
                         }
                     break;
                     
-                    case "3":                    
+                    case "3":    //Nível 4                    
                         int objJogo3 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
                         int aleatorioNum3 = gerarNumClicks.nextInt(objJogo3)+(objJogo3+40);                        
                         if(objJogo3 - count == 0) {
+                            
+                            double meowClickCents3 = Double.parseDouble(jLabelClicks.getText());                            
+                            double cents3 = meowClickCents3 / 100;  
                                 
                             jLabelObjetivoJogo.setText(""+aleatorioNum3);
                             jLabelNivel.setText("4");
                             
+                            jLabelQntDinheiro.setText(""+(valor+cents3));  
+                            
                         }
                     break;
                     
-                    case "4":                   
+                    case "4":    //Nível 5                   
                         int objJogo4 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
                         int aleatorioNum4 = gerarNumClicks.nextInt(objJogo4)+(objJogo4+50); 
                         if(objJogo4 - count == 0) {
+                            
+                            double meowClickCents4 = Double.parseDouble(jLabelClicks.getText());                            
+                            double cents4 = meowClickCents4 / 100; 
                                 
                             jLabelObjetivoJogo.setText(""+aleatorioNum4);
                             jLabelNivel.setText("5");
                             
-                        }
-                    break;
-                    
-                    case "5":                   
-                        int objJogo5 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
-                        int aleatorioNum5 = gerarNumClicks.nextInt(objJogo5)+(objJogo5+60); 
-                        if(objJogo5 - count == 0) {
-                                
-                            jLabelObjetivoJogo.setText(""+aleatorioNum5);
-                            jLabelNivel.setText("6");
+                            jLabelQntDinheiro.setText(""+(valor+cents4));  
                             
                         }
                     break;
                     
-                    case "6":                  
+                    case "5":    //Nível 6                   
+                        int objJogo5 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
+                        int aleatorioNum5 = gerarNumClicks.nextInt(objJogo5)+(objJogo5+60); 
+                        if(objJogo5 - count == 0) {
+
+                            double meowClickCents5 = Double.parseDouble(jLabelClicks.getText());                            
+                            double cents5 = meowClickCents5 / 100;                           
+                                                            
+                            jLabelObjetivoJogo.setText(""+aleatorioNum5);
+                            jLabelNivel.setText("6");
+                            
+                            jLabelQntDinheiro.setText(""+(valor+cents5));
+                            
+                        }
+                    break;
+                    
+                    case "6":    //Nível 7                  
                         int objJogo6 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
                         int aleatorioNum6 = gerarNumClicks.nextInt(objJogo6)+(objJogo6+70);  
                         if(objJogo6 - count == 0) {
+                            
+                            double meowClickCents6 = Double.parseDouble(jLabelClicks.getText());                            
+                            double cents6 = meowClickCents6 / 100;
                                 
                             jLabelObjetivoJogo.setText(""+aleatorioNum6);
                             jLabelNivel.setText("7");
                             
+                            jLabelQntDinheiro.setText(""+(valor+cents6));
+                            
                         }
                     break;
                     
-                    case "7":                    
+                    case "7":    //Nível 8                    
                         int objJogo7 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
                         int aleatorioNum7 = gerarNumClicks.nextInt(objJogo7)+(objJogo7+80);
                         if(objJogo7 - count == 0) {
+                            
+                            double meowClickCents7 = Double.parseDouble(jLabelClicks.getText());                            
+                            double cents7 = meowClickCents7 / 100;
                                 
                             jLabelObjetivoJogo.setText(""+aleatorioNum7);
                             jLabelNivel.setText("8");
                             
+                            jLabelQntDinheiro.setText(""+(valor+cents7));
+                            
                         }
                     break;
                     
-                    case "8":                    
+                    case "8":    //Nível 9                    
                         int objJogo8 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
                         int aleatorioNum8 = gerarNumClicks.nextInt(objJogo8)+(objJogo8+90);
                         if(objJogo8 - count == 0) {
+                            
+                            double meowClickCents8 = Double.parseDouble(jLabelClicks.getText());                            
+                            double cents8 = meowClickCents8 / 100;
                                 
                             jLabelObjetivoJogo.setText(""+aleatorioNum8);
                             jLabelNivel.setText("9");
                             
+                            jLabelQntDinheiro.setText(""+(valor+cents8));
+                            
                         }
                     break;
                     
-                    case "9":                        
+                    case "9":    //Nível 10                        
                         int objJogo9 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
                         int aleatorioNum9 = gerarNumClicks.nextInt(objJogo9)+objJogo9+100; 
                         if(objJogo9 - count == 0) {
+                            
+                            double meowClickCents9 = Double.parseDouble(jLabelClicks.getText());                            
+                            double cents9 = meowClickCents9 / 100;
                                 
                             jLabelObjetivoJogo.setText(""+aleatorioNum9);
                             jLabelNivel.setText("10");
                             
+                            jLabelQntDinheiro.setText(""+(valor+cents9));
+                            
                         }
                     break;
                   
-                    case "10":                   
+                    case "10":    //Nível 11                   
                         int objJogo10 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
                         int aleatorioNum10 = gerarNumClicks.nextInt(objJogo10)+(objJogo10+110);
                         if(objJogo10 - count == 0) {
+                            
+                            double meowClickCents10 = Double.parseDouble(jLabelClicks.getText());                            
+                            double cents10 = meowClickCents10 / 100;
                                 
                             jLabelObjetivoJogo.setText(""+aleatorioNum10);
                             jLabelNivel.setText("11");
+                            
+                            jLabelQntDinheiro.setText(""+(valor+cents10));
                             
                         }
                     break;
@@ -194,66 +244,10 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
                 }
                 
                }                
-            }                   
-            
-            
-            
-
-            
-            
-//            switch (count) {
-//                case 50:
-//                    jLabelNivel.setText("2");
-//                    jLabelObjetivoJogoStatus.setText("50");
-//                    break;
-//                case 100:
-//                    jLabelNivel.setText("3");
-//                    jLabelObjetivoJogoStatus.setText("100");
-//                    break;
-//                case 150:
-//                    jLabelNivel.setText("4");
-//                    jLabelObjetivoJogoStatus.setText("150");
-//                    break;
-//                case 200:
-//                    jLabelNivel.setText("5");
-//                    jLabelObjetivoJogoStatus.setText("200");
-//                    break;
-//                case  250:
-//                    jLabelNivel.setText("6");
-//                    jLabelObjetivoJogoStatus.setText("250");
-//                    break;
-//                case 300:
-//                    jLabelNivel.setText("7");
-//                    jLabelObjetivoJogoStatus.setText("300");
-//                    break;
-//                case 350:
-//                    jLabelNivel.setText("8");
-//                    jLabelObjetivoJogoStatus.setText("350");
-//                    break;
-//                case 400:
-//                    jLabelNivel.setText("9");
-//                    jLabelObjetivoJogoStatus.setText("400");
-//                    break;
-//                case 450:
-//                    jLabelNivel.setText("10");
-//                    jLabelObjetivoJogoStatus.setText("450");
-//                    break;
-//                case 500:
-//                    jLabelNivel.setText("11");
-//                    jLabelObjetivoJogoStatus.setText("500");
-//                    break;
-//                default:
-//                    break;
-//            }
-                        
+            }             
         } 
                       
     }
-    
-
-   
-   
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -279,10 +273,17 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
         jSeparatorObjetivo = new javax.swing.JSeparator();
         jPanelDinheiro = new javax.swing.JPanel();
         jLabelDinheiro = new javax.swing.JLabel();
-        jLabelQntDinheiro = new javax.swing.JLabel();
         jSeparatorDinheiro = new javax.swing.JSeparator();
+        jLabelQntDinheiroRS = new javax.swing.JLabel();
+        jLabelQntDinheiro = new javax.swing.JLabel();
         jButtonConfiguracao = new javax.swing.JButton();
         jButtonEditeSeuAnimal = new javax.swing.JButton();
+        jPanelDinheiro1 = new javax.swing.JPanel();
+        jLabelDinheiro1 = new javax.swing.JLabel();
+        jLabelMsgPodeComprar = new javax.swing.JLabel();
+        jSeparatorDinheiro1 = new javax.swing.JSeparator();
+        jButton1 = new javax.swing.JButton();
+        jButtonSalvarJogo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -349,7 +350,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
 
         jLabelFases.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelFases.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelFases.setText("Fases");
+        jLabelFases.setText("Fases (Reais)");
 
         jLabelNivel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelNivel.setForeground(new java.awt.Color(0, 0, 255));
@@ -370,7 +371,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
                                 .addGap(13, 13, 13)
                                 .addComponent(jSeparatorFases, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabelNivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 12, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelFasesLayout.setVerticalGroup(
@@ -390,7 +391,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
 
         jLabelObjetivo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabelObjetivo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelObjetivo.setText("Objetivo");
+        jLabelObjetivo.setText("Objetivo (Centavos)");
 
         jLabelObjetivoJogo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelObjetivoJogo.setForeground(new java.awt.Color(0, 0, 255));
@@ -433,10 +434,14 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
         jLabelDinheiro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelDinheiro.setText("Dinheiro");
 
+        jLabelQntDinheiroRS.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelQntDinheiroRS.setForeground(new java.awt.Color(0, 0, 255));
+        jLabelQntDinheiroRS.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabelQntDinheiroRS.setText("R$");
+
         jLabelQntDinheiro.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelQntDinheiro.setForeground(new java.awt.Color(0, 0, 255));
-        jLabelQntDinheiro.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelQntDinheiro.setText("0");
+        jLabelQntDinheiro.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout jPanelDinheiroLayout = new javax.swing.GroupLayout(jPanelDinheiro);
         jPanelDinheiro.setLayout(jPanelDinheiroLayout);
@@ -445,15 +450,18 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
             .addGroup(jPanelDinheiroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelDinheiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelDinheiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelDinheiroLayout.createSequentialGroup()
+                        .addComponent(jLabelDinheiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(jPanelDinheiroLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
                         .addGroup(jPanelDinheiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanelDinheiroLayout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(jSeparatorDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabelQntDinheiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(jLabelQntDinheiroRS)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelQntDinheiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jSeparatorDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanelDinheiroLayout.setVerticalGroup(
             jPanelDinheiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,9 +470,11 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
                 .addComponent(jLabelDinheiro)
                 .addGap(1, 1, 1)
                 .addComponent(jSeparatorDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelQntDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelDinheiroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelQntDinheiroRS, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelQntDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jButtonConfiguracao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -485,6 +495,64 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
             }
         });
 
+        jPanelDinheiro1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelDinheiro1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 51, 204), 1, true));
+
+        jLabelDinheiro1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelDinheiro1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelDinheiro1.setText("Comprar");
+
+        jLabelMsgPodeComprar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelMsgPodeComprar.setForeground(new java.awt.Color(0, 0, 255));
+        jLabelMsgPodeComprar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelMsgPodeComprar.setText("0");
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 255));
+        jButton1.setText("AutoClick");
+
+        javax.swing.GroupLayout jPanelDinheiro1Layout = new javax.swing.GroupLayout(jPanelDinheiro1);
+        jPanelDinheiro1.setLayout(jPanelDinheiro1Layout);
+        jPanelDinheiro1Layout.setHorizontalGroup(
+            jPanelDinheiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDinheiro1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelDinheiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelDinheiro1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelDinheiro1Layout.createSequentialGroup()
+                        .addGroup(jPanelDinheiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelMsgPodeComprar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanelDinheiro1Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addGroup(jPanelDinheiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                    .addComponent(jSeparatorDinheiro1, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanelDinheiro1Layout.setVerticalGroup(
+            jPanelDinheiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDinheiro1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelDinheiro1)
+                .addGap(1, 1, 1)
+                .addComponent(jSeparatorDinheiro1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelMsgPodeComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jButtonSalvarJogo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonSalvarJogo.setForeground(new java.awt.Color(0, 0, 255));
+        jButtonSalvarJogo.setText("Salvar Jogo");
+        jButtonSalvarJogo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalvarJogoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelBackgroundLayout = new javax.swing.GroupLayout(jPanelBackground);
         jPanelBackground.setLayout(jPanelBackgroundLayout);
         jPanelBackgroundLayout.setHorizontalGroup(
@@ -496,13 +564,15 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
                     .addComponent(jPanelObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonClicks, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonClicks, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanelFases, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelDinheiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonEditeSeuAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(jButtonEditeSeuAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelDinheiro1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonSalvarJogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelBackgroundLayout.setVerticalGroup(
             jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -516,8 +586,12 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
                         .addGap(18, 18, 18)
                         .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanelObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanelDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanelDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanelDinheiro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSalvarJogo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButtonEditeSeuAnimal, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -536,7 +610,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
             .addComponent(jPanelBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(822, 562));
+        setSize(new java.awt.Dimension(826, 562));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -563,6 +637,10 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
         EscolherAnimal escAnimal = new EscolherAnimal();
         escAnimal.setVisible(true);
     }//GEN-LAST:event_jButtonEditeSeuAnimalActionPerformed
+
+    private void jButtonSalvarJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarJogoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSalvarJogoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -600,27 +678,50 @@ public class Main extends javax.swing.JFrame implements ActionListener{ //1
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     public javax.swing.JButton jButtonClicks;
     private javax.swing.JButton jButtonConfiguracao;
     private javax.swing.JButton jButtonEditeSeuAnimal;
+    private javax.swing.JButton jButtonSalvarJogo;
     private javax.swing.JLabel jLabelClicks;
     private javax.swing.JLabel jLabelDinheiro;
+    private javax.swing.JLabel jLabelDinheiro1;
     private javax.swing.JLabel jLabelFases;
     private javax.swing.JLabel jLabelMeowClicks;
+    private javax.swing.JLabel jLabelMsgPodeComprar;
     private javax.swing.JLabel jLabelNivel;
     private javax.swing.JLabel jLabelObjetivo;
     private javax.swing.JLabel jLabelObjetivoJogo;
     private javax.swing.JLabel jLabelQntDinheiro;
+    private javax.swing.JLabel jLabelQntDinheiroRS;
     private javax.swing.JPanel jPanelBackground;
     private javax.swing.JPanel jPanelDinheiro;
+    private javax.swing.JPanel jPanelDinheiro1;
     private javax.swing.JPanel jPanelFases;
     private javax.swing.JPanel jPanelMeowClicks;
     private javax.swing.JPanel jPanelObjetivo;
     private javax.swing.JSeparator jSeparatorDinheiro;
+    private javax.swing.JSeparator jSeparatorDinheiro1;
     private javax.swing.JSeparator jSeparatorFases;
     private javax.swing.JSeparator jSeparatorMeowClicks;
     private javax.swing.JSeparator jSeparatorObjetivo;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the valor
+     */
+    public double getValor() {
+        return valor;
+    }
+
+    /**
+     * @param valor the valor to set
+     */
+    public void setValor(double valor) {
+        this.valor = valor;
+      
+    }
+
 
 //    @Override
 //    public void actionPerformed(ActionEvent e) {
