@@ -5,7 +5,8 @@ import escolheranimal.EscolherAnimal;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DecimalFormat;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -18,18 +19,16 @@ public class Main extends javax.swing.JFrame implements ActionListener{
     private String qntClicks;
     private int count = 0;
     private int i;
-    private String numAle;
     private final String message = "Deseja Jogar?";
     private final String title = "CatShop";
     
     private double valor = 0.00;
-    private final double real = 1.00;
-    private final double centavo = 0.01;
     
     private final double valorCompraAutoClick = 0.50; //?
     private double compra;
     private double cents1, cents2, cents3, cents4, cents5, cents6, cents7, cents8, cents9, cents10;
     private double somaDinheiro;
+    private boolean mensagemAutoClick;
     
     Random gerarNumClicks = new Random(); 
     
@@ -42,14 +41,15 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         int reply = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
         if(reply == JOptionPane.YES_OPTION) {
 
-            JOptionPane.showMessageDialog(null, "Boa Sorte!");
-                        int aleatorioNum0 = gerarNumClicks.nextInt(10)+10;  
-                        jLabelObjetivoJogo.setText(""+aleatorioNum0);
-                       // numAle = Integer.toString(aleatorioNum0);
-                        jLabelNivel.setText("1");  
-                        jLabelQntDinheiro.setText(""+valor);
-                        jLabelMsgPodeComprar.setText("Compra trancada!");
-                        jLabelMsgPodeComprar.setForeground(Color.red);
+            JOptionPane.showMessageDialog(null, "Divirta-se!");
+                       
+                int aleatorioNum0 = gerarNumClicks.nextInt(10)+10;  
+                jLabelObjetivoJogo.setText(""+aleatorioNum0);
+                jLabelNivel.setText("1");  
+                jLabelQntDinheiro.setText(""+valor);
+                
+                jLabelMsgPodeComprar.setText("Compra trancada!");
+                jLabelMsgPodeComprar.setForeground(Color.red);
                         
         } else {
             
@@ -59,6 +59,9 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         }
         
     }
+    
+    
+    
     
     @Override
     public void actionPerformed(ActionEvent e) {         
@@ -74,15 +77,9 @@ public class Main extends javax.swing.JFrame implements ActionListener{
 
                 qntClicks = Integer.toString(count);
                 
-                jLabelClicks.setText(qntClicks);
-             
-                int objJogo = Integer.parseInt(""+jLabelObjetivoJogo.getText());      
-                
-                DecimalFormat decimal = new DecimalFormat( "0.00" );
-                
+                jLabelClicks.setText(qntClicks);             
+              
                for(i=0; i<10; i++) {
-
-                   //tava aqui
 
                 switch (jLabelNivel.getText()) {
                     
@@ -91,183 +88,366 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                     break;
                     
                     case "1":    //Nível 2
-                        int objJogo1 = Integer.parseInt(""+jLabelObjetivoJogo.getText());    
-                        int aleatorioNum1 = gerarNumClicks.nextInt(objJogo1)+(objJogo1+20);                     
-                        if(objJogo1 - count == 0) {
+                        int objJogo1 = Integer.parseInt(jLabelObjetivoJogo.getText());    
+                        int aleatorioNum1 = gerarNumClicks.nextInt(objJogo1)+(objJogo1+20); 
+                      
+                        if(objJogo1 - count == 0) {                            
                             
-                            double objJogo1Double = Integer.parseInt(""+jLabelObjetivoJogo.getText()); 
-                            
+                            double objJogo1Double = Integer.parseInt(jLabelObjetivoJogo.getText()); 
+                                                                                    
                             cents1 = objJogo1Double/100;
-                            somaDinheiro = valor + cents1;
+                            somaDinheiro = valor + cents1;      
+                            
+                            BigDecimal bd1 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                            
+                                                      
+                            boolean msg1 = getMensagemAutoClick();
+                            
+                            if(msg1 == true) {
+                                
+                                jLabelMsgPodeComprar.setText("Compre-me!");
+                                jLabelMsgPodeComprar.setForeground(Color.green);
+                                
+                            } else {
+                            
+                                jLabelMsgPodeComprar.setText("Compra Trancada!");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            
+                            }
                                                            
                             jLabelObjetivoJogo.setText(""+aleatorioNum1);
                             jLabelNivel.setText("2");
                             
-                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));   
-                            
+                            jLabelQntDinheiro.setText(""+bd1.doubleValue());   
+                            jLabelQntDinheiro1.setText(""+bd1.doubleValue());
+                                                       
                         }
                     break;
                     
                     case "2":      //Nível 3
-                        int objJogo2 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
-                        int aleatorioNum2 = gerarNumClicks.nextInt(objJogo2)+(objJogo2+30);
+                        
+                        int objJogo2 = Integer.parseInt(jLabelObjetivoJogo.getText());    
+                        int aleatorioNum2 = gerarNumClicks.nextInt(objJogo2)+(objJogo2+20);  
+            
                         if(objJogo2 - count == 0) {
+                                                        
+                            double objJogo2Double = Integer.parseInt(jLabelObjetivoJogo.getText()); 
                             
-                            double objJogo2Double = Integer.parseInt(""+jLabelObjetivoJogo.getText()); 
+                            cents2 = objJogo2Double/100;
+                            somaDinheiro = somaDinheiro + cents2;    
                             
-                            cents2 = objJogo2Double / 100; 
-                            somaDinheiro = somaDinheiro + cents2;
-                                            
+                            BigDecimal bd2 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                                                                  
+                            boolean msg2 = getMensagemAutoClick();
+                            
+                            if(msg2 == true) {
+                                
+                                jLabelMsgPodeComprar.setText("Compre-me!");
+                                jLabelMsgPodeComprar.setForeground(Color.green);
+                                
+                            } else {
+                            
+                                jLabelMsgPodeComprar.setText("Compra Trancada!");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            
+                            }
+                                                           
                             jLabelObjetivoJogo.setText(""+aleatorioNum2);
                             jLabelNivel.setText("3");
                             
-                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro)); 
+                                
+                            jLabelQntDinheiro.setText(""+bd2.doubleValue());  
+                            jLabelQntDinheiro1.setText(""+bd2.doubleValue());
+                           
                             
                             
                         }
                     break;
                     
                     case "3":    //Nível 4                    
-                        int objJogo3 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
+                        int objJogo3 = Integer.parseInt(jLabelObjetivoJogo.getText());                     
                         int aleatorioNum3 = gerarNumClicks.nextInt(objJogo3)+(objJogo3+40);                        
                         if(objJogo3 - count == 0) {
                             
-                        double objJogo3Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());  
+                        double objJogo3Double = Integer.parseInt(jLabelObjetivoJogo.getText());  
                         
                             cents3 = objJogo3Double/100;
                             somaDinheiro = somaDinheiro + cents3;
+                            
+                            BigDecimal bd3 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                            
+                            boolean msg3 = getMensagemAutoClick();
+                            
+                            if(msg3 == true) {
+                                
+                                jLabelMsgPodeComprar.setText("Compre-me!");
+                                jLabelMsgPodeComprar.setForeground(Color.green);
+                                
+                            } else {
+                            
+                                jLabelMsgPodeComprar.setText("Compra Trancada!");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            
+                            }
                              
                             jLabelObjetivoJogo.setText(""+aleatorioNum3);
                             jLabelNivel.setText("4");
                             
-                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));  
+                            jLabelQntDinheiro.setText(""+bd3.doubleValue());  
+                            jLabelQntDinheiro1.setText(""+bd3.doubleValue());
+                           
                             
                         }
                     break;
                     
                     case "4":    //Nível 5                   
-                        int objJogo4 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
+                        int objJogo4 = Integer.parseInt(jLabelObjetivoJogo.getText());                     
                         int aleatorioNum4 = gerarNumClicks.nextInt(objJogo4)+(objJogo4+50); 
                         if(objJogo4 - count == 0) {
                             
-                            double objJogo4Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());  
+                            double objJogo4Double = Integer.parseInt(jLabelObjetivoJogo.getText());  
                             
                             cents4 = objJogo4Double / 100;
                             somaDinheiro = somaDinheiro + cents4;
+                            
+                            BigDecimal bd4 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                             
+                            boolean msg4 = getMensagemAutoClick();
+                            
+                            if(msg4 == true) {
+                                
+                                jLabelMsgPodeComprar.setText("Compre-me!");
+                                jLabelMsgPodeComprar.setForeground(Color.green);
+                                
+                            } else {
+                            
+                                jLabelMsgPodeComprar.setText("Compra Trancada!");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            
+                            }
                                                               
                             jLabelObjetivoJogo.setText(""+aleatorioNum4);
                             jLabelNivel.setText("5");
                         
                             
-                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));  
+                            jLabelQntDinheiro.setText(""+bd4.doubleValue());  
+                            jLabelQntDinheiro1.setText(""+bd4.doubleValue());
+                            
                             
                         }
                     break;
                     
                     case "5":    //Nível 6                   
-                        int objJogo5 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
+                        int objJogo5 = Integer.parseInt(jLabelObjetivoJogo.getText());                     
                         int aleatorioNum5 = gerarNumClicks.nextInt(objJogo5)+(objJogo5+60); 
                         if(objJogo5 - count == 0) {
 
-                            double objJogo5Double = Integer.parseInt(""+jLabelObjetivoJogo.getText()); 
+                            double objJogo5Double = Integer.parseInt(jLabelObjetivoJogo.getText()); 
                             
                             cents5 = objJogo5Double / 100;
                             somaDinheiro = somaDinheiro + cents5;
+                            
+                            BigDecimal bd5 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                            
+                            boolean msg5 = getMensagemAutoClick();
+                            
+                            if(msg5 == true) {
+                                
+                                jLabelMsgPodeComprar.setText("Compre-me!");
+                                jLabelMsgPodeComprar.setForeground(Color.green);
+                                
+                            } else {
+                            
+                                jLabelMsgPodeComprar.setText("Compra Trancada!");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            
+                            }
                                                       
                             jLabelObjetivoJogo.setText(""+aleatorioNum5);
                             jLabelNivel.setText("6");
                             
-                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));
+                            jLabelQntDinheiro.setText(""+bd5.doubleValue());
+                            jLabelQntDinheiro1.setText(""+bd5.doubleValue());
                             
                         }
                     break;
                     
                     case "6":    //Nível 7                  
-                        int objJogo6 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
+                        int objJogo6 = Integer.parseInt(jLabelObjetivoJogo.getText());                     
                         int aleatorioNum6 = gerarNumClicks.nextInt(objJogo6)+(objJogo6+70);  
                         if(objJogo6 - count == 0) {
  
-                            double objJogo6Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());
+                            double objJogo6Double = Integer.parseInt(jLabelObjetivoJogo.getText());
                             
                             cents6 = objJogo6Double / 100;
                             somaDinheiro = somaDinheiro + cents6;
+                            
+                            BigDecimal bd6 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                            
+                            boolean msg6 = getMensagemAutoClick();
+                            
+                            if(msg6 == true) {
+                                
+                                jLabelMsgPodeComprar.setText("Compre-me!");
+                                jLabelMsgPodeComprar.setForeground(Color.green);
+                                
+                            } else {
+                            
+                                jLabelMsgPodeComprar.setText("Compra Trancada!");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            
+                            }
                                                      
                             jLabelObjetivoJogo.setText(""+aleatorioNum6);
                             jLabelNivel.setText("7");
                             
-                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));
+                            jLabelQntDinheiro.setText(""+bd6.doubleValue());
+                            jLabelQntDinheiro1.setText(""+bd6.doubleValue());
+                            
                             
                         }
                     break;
                     
                     case "7":    //Nível 8                    
-                        int objJogo7 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
+                        int objJogo7 = Integer.parseInt(jLabelObjetivoJogo.getText());                     
                         int aleatorioNum7 = gerarNumClicks.nextInt(objJogo7)+(objJogo7+80);
                         if(objJogo7 - count == 0) {
                      
-                            double objJogo7Double = Integer.parseInt(""+jLabelObjetivoJogo.getText()); 
+                            double objJogo7Double = Integer.parseInt(jLabelObjetivoJogo.getText()); 
                             
                             cents7 = objJogo7Double / 100;
                             somaDinheiro = somaDinheiro + cents7;    
-                                                                                 
+                            
+                            BigDecimal bd7 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                                                          
+                            boolean msg7 = getMensagemAutoClick();
+                            
+                            if(msg7 == true) {
+                                
+                                jLabelMsgPodeComprar.setText("Compre-me!");
+                                jLabelMsgPodeComprar.setForeground(Color.green);
+                                
+                            } else {
+                            
+                                jLabelMsgPodeComprar.setText("Compra Trancada!");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            
+                            }
+                            
                             jLabelObjetivoJogo.setText(""+aleatorioNum7);
                             jLabelNivel.setText("8");
                             
-                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));
+                            jLabelQntDinheiro.setText(""+bd7.doubleValue());
+                            jLabelQntDinheiro1.setText(""+bd7.doubleValue());
+                            
                             
                         }
                     break;
                     
                     case "8":    //Nível 9                    
-                        int objJogo8 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
+                        int objJogo8 = Integer.parseInt(jLabelObjetivoJogo.getText());                     
                         int aleatorioNum8 = gerarNumClicks.nextInt(objJogo8)+(objJogo8+90);
                         if(objJogo8 - count == 0) {
                             
-                            double objJogo8Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());  
+                            double objJogo8Double = Integer.parseInt(jLabelObjetivoJogo.getText());  
                             
                             cents8 = objJogo8Double / 100;
                             somaDinheiro = somaDinheiro + cents8;    
+                            
+                            BigDecimal bd8 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                            
+                            boolean msg8 = getMensagemAutoClick();
+                            
+                            if(msg8 == true) {
+                                
+                                jLabelMsgPodeComprar.setText("Compre-me!");
+                                jLabelMsgPodeComprar.setForeground(Color.green);
+                                
+                            } else {
+                            
+                                jLabelMsgPodeComprar.setText("Compra Trancada!");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            
+                            }
                                                      
                             jLabelObjetivoJogo.setText(""+aleatorioNum8);
                             jLabelNivel.setText("9");
                             
-                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));
+                            jLabelQntDinheiro.setText(""+bd8.doubleValue());
+                            jLabelQntDinheiro1.setText(""+bd8.doubleValue());
+                           
                             
                         }
                     break;
                     
                     case "9":    //Nível 10                        
-                        int objJogo9 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
+                        int objJogo9 = Integer.parseInt(jLabelObjetivoJogo.getText());                     
                         int aleatorioNum9 = gerarNumClicks.nextInt(objJogo9)+objJogo9+100; 
                         if(objJogo9 - count == 0) {
                 
-                            double objJogo9Double = Integer.parseInt(""+jLabelObjetivoJogo.getText()); 
+                            double objJogo9Double = Integer.parseInt(jLabelObjetivoJogo.getText()); 
                             
                             cents9 = objJogo9Double / 100;
                             somaDinheiro = somaDinheiro + cents9;    
+                            
+                            BigDecimal bd9 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                            
+                            boolean msg9 = getMensagemAutoClick();
+                            
+                            if(msg9 == true) {
+                                
+                                jLabelMsgPodeComprar.setText("Compre-me!");
+                                jLabelMsgPodeComprar.setForeground(Color.green);
+                                
+                            } else {
+                            
+                                jLabelMsgPodeComprar.setText("Compra Trancada!");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            
+                            }
                                                     
                             jLabelObjetivoJogo.setText(""+aleatorioNum9);
                             jLabelNivel.setText("10");
                             
-                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));
+                            jLabelQntDinheiro.setText(""+bd9.doubleValue());
+                            jLabelQntDinheiro1.setText(""+bd9.doubleValue());
+                            
                             
                         }
                     break;
                   
                     case "10":    //Nível 11                   
-                        int objJogo10 = Integer.parseInt(""+jLabelObjetivoJogo.getText());                     
+                        int objJogo10 = Integer.parseInt(jLabelObjetivoJogo.getText());                     
                         int aleatorioNum10 = gerarNumClicks.nextInt(objJogo10)+(objJogo10+110);
                         if(objJogo10 - count == 0) {
                 
-                            double objJogo10Double = Integer.parseInt(""+jLabelObjetivoJogo.getText());
+                            double objJogo10Double = Integer.parseInt(jLabelObjetivoJogo.getText());
                             
                             cents10 = objJogo10Double / 100;
                             somaDinheiro = somaDinheiro + cents10;    
+                            
+                            BigDecimal bd10 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                            
+                            boolean msg10 = getMensagemAutoClick();
+                            
+                            if(msg10 == true) {
+                                
+                                jLabelMsgPodeComprar.setText("Compre-me!");
+                                jLabelMsgPodeComprar.setForeground(Color.green);
+                                
+                            } else {
+                            
+                                jLabelMsgPodeComprar.setText("Compra Trancada!");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            
+                            }
                                                     
                             jLabelObjetivoJogo.setText(""+aleatorioNum10);
                             jLabelNivel.setText("11");
                             
-                            jLabelQntDinheiro.setText(""+decimal.format(somaDinheiro));
+                            jLabelQntDinheiro.setText(""+bd10.doubleValue());
+                            jLabelQntDinheiro1.setText(""+bd10.doubleValue());
+                            
                             
                         }
                     break;
@@ -316,6 +496,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         jButton1 = new javax.swing.JButton();
         jButtonSalvarJogo = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabelQntDinheiro1 = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -591,17 +772,28 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         jButton2.setForeground(new java.awt.Color(0, 0, 255));
         jButton2.setText("Regra do Jogo");
 
+        jLabelQntDinheiro1.setEditable(false);
+        jLabelQntDinheiro1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabelQntDinheiro1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jLabelQntDinheiro1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤#,##0.00"))));
+        jLabelQntDinheiro1.setEnabled(false);
+
         javax.swing.GroupLayout jPanelBackgroundLayout = new javax.swing.GroupLayout(jPanelBackground);
         jPanelBackground.setLayout(jPanelBackgroundLayout);
         jPanelBackgroundLayout.setHorizontalGroup(
             jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBackgroundLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanelMeowClicks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelObjetivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBackgroundLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanelMeowClicks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanelObjetivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanelBackgroundLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabelQntDinheiro1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonClicks, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -626,14 +818,16 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                         .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanelObjetivo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanelDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanelBackgroundLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
                                 .addComponent(jPanelDinheiro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButtonSalvarJogo))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBackgroundLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
+                            .addGroup(jPanelBackgroundLayout.createSequentialGroup()
+                                .addGap(71, 71, 71)
+                                .addComponent(jLabelQntDinheiro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -754,6 +948,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel jLabelObjetivo;
     private javax.swing.JLabel jLabelObjetivoJogo;
     private javax.swing.JLabel jLabelQntDinheiro;
+    private javax.swing.JFormattedTextField jLabelQntDinheiro1;
     private javax.swing.JLabel jLabelQntDinheiroRS;
     private javax.swing.JPanel jPanelBackground;
     private javax.swing.JPanel jPanelDinheiro;
@@ -782,6 +977,28 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         this.valor = valor;
       
     }
+
+    /**
+     * @return the mensagemAutoClick
+     */
+    public boolean getMensagemAutoClick() {
+        
+       double qntDinheiro = Double.parseDouble(jLabelQntDinheiro.getText());
+       
+       mensagemAutoClick = qntDinheiro > valorCompraAutoClick; //0.50
+        
+        
+        return mensagemAutoClick;
+    }
+
+    /**
+     * @param mensagemAutoClick the mensagemAutoClick to set
+     */
+    public void setMensagemAutoClick(boolean mensagemAutoClick) {
+        this.mensagemAutoClick = mensagemAutoClick;
+    }
+
+
 
 
 //    @Override
