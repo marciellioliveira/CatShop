@@ -102,6 +102,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             
                                                       
                             boolean msg1 = getMensagemAutoClick();
+                            System.out.println(""+msg1);
                             
                             if(msg1 == true) {
                                 
@@ -119,7 +120,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             jLabelNivel.setText("2");
                             
                             jLabelQntDinheiro.setText(""+bd1.doubleValue());   
-                            jLabelQntDinheiro1.setText(""+bd1.doubleValue());
                                                        
                         }
                     break;
@@ -139,6 +139,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             BigDecimal bd2 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
                                                                   
                             boolean msg2 = getMensagemAutoClick();
+                            System.out.println(""+msg2);
                             
                             if(msg2 == true) {
                                 
@@ -157,7 +158,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             
                                 
                             jLabelQntDinheiro.setText(""+bd2.doubleValue());  
-                            jLabelQntDinheiro1.setText(""+bd2.doubleValue());
                            
                             
                             
@@ -177,6 +177,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             BigDecimal bd3 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
                             
                             boolean msg3 = getMensagemAutoClick();
+                            System.out.println(""+msg3);
                             
                             if(msg3 == true) {
                                 
@@ -194,8 +195,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             jLabelNivel.setText("4");
                             
                             jLabelQntDinheiro.setText(""+bd3.doubleValue());  
-                            jLabelQntDinheiro1.setText(""+bd3.doubleValue());
-                           
                             
                         }
                     break;
@@ -213,6 +212,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             BigDecimal bd4 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
                              
                             boolean msg4 = getMensagemAutoClick();
+                            System.out.println(""+msg4);
                             
                             if(msg4 == true) {
                                 
@@ -231,7 +231,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                         
                             
                             jLabelQntDinheiro.setText(""+bd4.doubleValue());  
-                            jLabelQntDinheiro1.setText(""+bd4.doubleValue());
                             
                             
                         }
@@ -250,6 +249,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             BigDecimal bd5 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
                             
                             boolean msg5 = getMensagemAutoClick();
+                            System.out.println(""+msg5);
                             
                             if(msg5 == true) {
                                 
@@ -267,7 +267,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             jLabelNivel.setText("6");
                             
                             jLabelQntDinheiro.setText(""+bd5.doubleValue());
-                            jLabelQntDinheiro1.setText(""+bd5.doubleValue());
                             
                         }
                     break;
@@ -285,6 +284,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             BigDecimal bd6 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
                             
                             boolean msg6 = getMensagemAutoClick();
+                            System.out.println(""+msg6);
                             
                             if(msg6 == true) {
                                 
@@ -302,7 +302,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             jLabelNivel.setText("7");
                             
                             jLabelQntDinheiro.setText(""+bd6.doubleValue());
-                            jLabelQntDinheiro1.setText(""+bd6.doubleValue());
                             
                             
                         }
@@ -321,6 +320,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             BigDecimal bd7 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
                                                           
                             boolean msg7 = getMensagemAutoClick();
+                            System.out.println(""+msg7);
                             
                             if(msg7 == true) {
                                 
@@ -338,7 +338,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             jLabelNivel.setText("8");
                             
                             jLabelQntDinheiro.setText(""+bd7.doubleValue());
-                            jLabelQntDinheiro1.setText(""+bd7.doubleValue());
                             
                             
                         }
@@ -357,6 +356,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             BigDecimal bd8 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
                             
                             boolean msg8 = getMensagemAutoClick();
+                            System.out.println(""+msg8);
                             
                             if(msg8 == true) {
                                 
@@ -374,7 +374,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             jLabelNivel.setText("9");
                             
                             jLabelQntDinheiro.setText(""+bd8.doubleValue());
-                            jLabelQntDinheiro1.setText(""+bd8.doubleValue());
                            
                             
                         }
@@ -410,7 +409,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             jLabelNivel.setText("10");
                             
                             jLabelQntDinheiro.setText(""+bd9.doubleValue());
-                            jLabelQntDinheiro1.setText(""+bd9.doubleValue());
                             
                             
                         }
@@ -446,7 +444,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             jLabelNivel.setText("11");
                             
                             jLabelQntDinheiro.setText(""+bd10.doubleValue());
-                            jLabelQntDinheiro1.setText(""+bd10.doubleValue());
                             
                             
                         }
@@ -496,7 +493,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         jButton1 = new javax.swing.JButton();
         jButtonSalvarJogo = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabelQntDinheiro1 = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -772,28 +768,17 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         jButton2.setForeground(new java.awt.Color(0, 0, 255));
         jButton2.setText("Regra do Jogo");
 
-        jLabelQntDinheiro1.setEditable(false);
-        jLabelQntDinheiro1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelQntDinheiro1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jLabelQntDinheiro1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("¤#,##0.00"))));
-        jLabelQntDinheiro1.setEnabled(false);
-
         javax.swing.GroupLayout jPanelBackgroundLayout = new javax.swing.GroupLayout(jPanelBackground);
         jPanelBackground.setLayout(jPanelBackgroundLayout);
         jPanelBackgroundLayout.setHorizontalGroup(
             jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBackgroundLayout.createSequentialGroup()
-                .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelBackgroundLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanelMeowClicks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanelObjetivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanelBackgroundLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabelQntDinheiro1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jPanelMeowClicks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelObjetivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonClicks, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -825,8 +810,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButtonSalvarJogo))
                             .addGroup(jPanelBackgroundLayout.createSequentialGroup()
-                                .addGap(71, 71, 71)
-                                .addComponent(jLabelQntDinheiro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -948,7 +931,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JLabel jLabelObjetivo;
     private javax.swing.JLabel jLabelObjetivoJogo;
     private javax.swing.JLabel jLabelQntDinheiro;
-    private javax.swing.JFormattedTextField jLabelQntDinheiro1;
     private javax.swing.JLabel jLabelQntDinheiroRS;
     private javax.swing.JPanel jPanelBackground;
     private javax.swing.JPanel jPanelDinheiro;
@@ -985,8 +967,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         
        double qntDinheiro = Double.parseDouble(jLabelQntDinheiro.getText());
        
-       mensagemAutoClick = qntDinheiro > valorCompraAutoClick; //0.50
-        
+        mensagemAutoClick = (qntDinheiro >= 0.51);        
         
         return mensagemAutoClick;
     }
