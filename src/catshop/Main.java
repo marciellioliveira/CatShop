@@ -28,7 +28,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
     private double compra;
     private double cents1, cents2, cents3, cents4, cents5, cents6, cents7, cents8, cents9, cents10;
     private double somaDinheiro;
-    private boolean mensagemAutoClick;
+    private String mensagemAutoClick;
     
     Random gerarNumClicks = new Random(); 
     
@@ -99,23 +99,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = valor + cents1;      
                             
                             BigDecimal bd1 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
-                            
-                                                      
-                            boolean msg1 = getMensagemAutoClick();
-                            System.out.println(""+msg1);
-                            
-                            if(msg1 == true) {
-                                
-                                jLabelMsgPodeComprar.setText("Compre-me!");
-                                jLabelMsgPodeComprar.setForeground(Color.green);
-                                
-                            } else {
-                            
-                                jLabelMsgPodeComprar.setText("Compra Trancada!");
-                                jLabelMsgPodeComprar.setForeground(Color.red);
-                            
-                            }
-                                                           
+                                                                        
                             jLabelObjetivoJogo.setText(""+aleatorioNum1);
                             jLabelNivel.setText("2");
                             
@@ -137,29 +121,11 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents2;    
                             
                             BigDecimal bd2 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
-                                                                  
-                            boolean msg2 = getMensagemAutoClick();
-                            System.out.println(""+msg2);
-                            
-                            if(msg2 == true) {
-                                
-                                jLabelMsgPodeComprar.setText("Compre-me!");
-                                jLabelMsgPodeComprar.setForeground(Color.green);
-                                
-                            } else {
-                            
-                                jLabelMsgPodeComprar.setText("Compra Trancada!");
-                                jLabelMsgPodeComprar.setForeground(Color.red);
-                            
-                            }
-                                                           
+                                                                             
                             jLabelObjetivoJogo.setText(""+aleatorioNum2);
-                            jLabelNivel.setText("3");
-                            
+                            jLabelNivel.setText("3");                            
                                 
                             jLabelQntDinheiro.setText(""+bd2.doubleValue());  
-                           
-                            
                             
                         }
                     break;
@@ -175,22 +141,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents3;
                             
                             BigDecimal bd3 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
-                            
-                            boolean msg3 = getMensagemAutoClick();
-                            System.out.println(""+msg3);
-                            
-                            if(msg3 == true) {
-                                
-                                jLabelMsgPodeComprar.setText("Compre-me!");
-                                jLabelMsgPodeComprar.setForeground(Color.green);
-                                
-                            } else {
-                            
-                                jLabelMsgPodeComprar.setText("Compra Trancada!");
-                                jLabelMsgPodeComprar.setForeground(Color.red);
-                            
-                            }
-                             
+                                          
                             jLabelObjetivoJogo.setText(""+aleatorioNum3);
                             jLabelNivel.setText("4");
                             
@@ -210,28 +161,11 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents4;
                             
                             BigDecimal bd4 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
-                             
-                            boolean msg4 = getMensagemAutoClick();
-                            System.out.println(""+msg4);
-                            
-                            if(msg4 == true) {
-                                
-                                jLabelMsgPodeComprar.setText("Compre-me!");
-                                jLabelMsgPodeComprar.setForeground(Color.green);
-                                
-                            } else {
-                            
-                                jLabelMsgPodeComprar.setText("Compra Trancada!");
-                                jLabelMsgPodeComprar.setForeground(Color.red);
-                            
-                            }
-                                                              
+                                                                
                             jLabelObjetivoJogo.setText(""+aleatorioNum4);
-                            jLabelNivel.setText("5");
-                        
+                            jLabelNivel.setText("5");                        
                             
-                            jLabelQntDinheiro.setText(""+bd4.doubleValue());  
-                            
+                            jLabelQntDinheiro.setText(""+bd4.doubleValue());                             
                             
                         }
                     break;
@@ -247,22 +181,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents5;
                             
                             BigDecimal bd5 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
-                            
-                            boolean msg5 = getMensagemAutoClick();
-                            System.out.println(""+msg5);
-                            
-                            if(msg5 == true) {
-                                
-                                jLabelMsgPodeComprar.setText("Compre-me!");
-                                jLabelMsgPodeComprar.setForeground(Color.green);
-                                
-                            } else {
-                            
-                                jLabelMsgPodeComprar.setText("Compra Trancada!");
-                                jLabelMsgPodeComprar.setForeground(Color.red);
-                            
-                            }
-                                                      
+                                                        
                             jLabelObjetivoJogo.setText(""+aleatorioNum5);
                             jLabelNivel.setText("6");
                             
@@ -282,27 +201,11 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents6;
                             
                             BigDecimal bd6 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
-                            
-                            boolean msg6 = getMensagemAutoClick();
-                            System.out.println(""+msg6);
-                            
-                            if(msg6 == true) {
-                                
-                                jLabelMsgPodeComprar.setText("Compre-me!");
-                                jLabelMsgPodeComprar.setForeground(Color.green);
-                                
-                            } else {
-                            
-                                jLabelMsgPodeComprar.setText("Compra Trancada!");
-                                jLabelMsgPodeComprar.setForeground(Color.red);
-                            
-                            }
-                                                     
+                
                             jLabelObjetivoJogo.setText(""+aleatorioNum6);
                             jLabelNivel.setText("7");
                             
-                            jLabelQntDinheiro.setText(""+bd6.doubleValue());
-                            
+                            jLabelQntDinheiro.setText(""+bd6.doubleValue());                            
                             
                         }
                     break;
@@ -318,27 +221,11 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents7;    
                             
                             BigDecimal bd7 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
-                                                          
-                            boolean msg7 = getMensagemAutoClick();
-                            System.out.println(""+msg7);
-                            
-                            if(msg7 == true) {
-                                
-                                jLabelMsgPodeComprar.setText("Compre-me!");
-                                jLabelMsgPodeComprar.setForeground(Color.green);
-                                
-                            } else {
-                            
-                                jLabelMsgPodeComprar.setText("Compra Trancada!");
-                                jLabelMsgPodeComprar.setForeground(Color.red);
-                            
-                            }
                             
                             jLabelObjetivoJogo.setText(""+aleatorioNum7);
                             jLabelNivel.setText("8");
                             
-                            jLabelQntDinheiro.setText(""+bd7.doubleValue());
-                            
+                            jLabelQntDinheiro.setText(""+bd7.doubleValue());                            
                             
                         }
                     break;
@@ -353,29 +240,13 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             cents8 = objJogo8Double / 100;
                             somaDinheiro = somaDinheiro + cents8;    
                             
-                            BigDecimal bd8 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
-                            
-                            boolean msg8 = getMensagemAutoClick();
-                            System.out.println(""+msg8);
-                            
-                            if(msg8 == true) {
-                                
-                                jLabelMsgPodeComprar.setText("Compre-me!");
-                                jLabelMsgPodeComprar.setForeground(Color.green);
-                                
-                            } else {
-                            
-                                jLabelMsgPodeComprar.setText("Compra Trancada!");
-                                jLabelMsgPodeComprar.setForeground(Color.red);
-                            
-                            }
-                                                     
+                            BigDecimal bd8 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);                            
+                 
                             jLabelObjetivoJogo.setText(""+aleatorioNum8);
                             jLabelNivel.setText("9");
                             
                             jLabelQntDinheiro.setText(""+bd8.doubleValue());
-                           
-                            
+                                                       
                         }
                     break;
                     
@@ -391,25 +262,10 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             
                             BigDecimal bd9 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
                             
-                            boolean msg9 = getMensagemAutoClick();
-                            
-                            if(msg9 == true) {
-                                
-                                jLabelMsgPodeComprar.setText("Compre-me!");
-                                jLabelMsgPodeComprar.setForeground(Color.green);
-                                
-                            } else {
-                            
-                                jLabelMsgPodeComprar.setText("Compra Trancada!");
-                                jLabelMsgPodeComprar.setForeground(Color.red);
-                            
-                            }
-                                                    
                             jLabelObjetivoJogo.setText(""+aleatorioNum9);
                             jLabelNivel.setText("10");
                             
-                            jLabelQntDinheiro.setText(""+bd9.doubleValue());
-                            
+                            jLabelQntDinheiro.setText(""+bd9.doubleValue());                            
                             
                         }
                     break;
@@ -425,26 +281,11 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents10;    
                             
                             BigDecimal bd10 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
-                            
-                            boolean msg10 = getMensagemAutoClick();
-                            
-                            if(msg10 == true) {
-                                
-                                jLabelMsgPodeComprar.setText("Compre-me!");
-                                jLabelMsgPodeComprar.setForeground(Color.green);
-                                
-                            } else {
-                            
-                                jLabelMsgPodeComprar.setText("Compra Trancada!");
-                                jLabelMsgPodeComprar.setForeground(Color.red);
-                            
-                            }
-                                                    
+                                                                                                        
                             jLabelObjetivoJogo.setText(""+aleatorioNum10);
                             jLabelNivel.setText("11");
                             
-                            jLabelQntDinheiro.setText(""+bd10.doubleValue());
-                            
+                            jLabelQntDinheiro.setText(""+bd10.doubleValue());                            
                             
                         }
                     break;
@@ -865,11 +706,13 @@ public class Main extends javax.swing.JFrame implements ActionListener{
        double qntDinheiro = Double.parseDouble(jLabelQntDinheiro.getText());
        
        if(qntDinheiro > 0.50) {
-       
+           
        compra = qntDinheiro - 0.50;
-        
+       
+       BigDecimal bdAP1 = new BigDecimal(compra).setScale(3, RoundingMode.HALF_EVEN);
+
         String atualizarQntDinheiro = String.valueOf(compra);
-        jLabelQntDinheiro.setText(atualizarQntDinheiro);
+        jLabelQntDinheiro.setText(""+bdAP1.doubleValue());
        
        } else {
        
@@ -960,24 +803,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
       
     }
 
-    /**
-     * @return the mensagemAutoClick
-     */
-    public boolean getMensagemAutoClick() {
-        
-       double qntDinheiro = Double.parseDouble(jLabelQntDinheiro.getText());
-       
-        mensagemAutoClick = (qntDinheiro >= 0.51);        
-        
-        return mensagemAutoClick;
-    }
 
-    /**
-     * @param mensagemAutoClick the mensagemAutoClick to set
-     */
-    public void setMensagemAutoClick(boolean mensagemAutoClick) {
-        this.mensagemAutoClick = mensagemAutoClick;
-    }
 
 
 
