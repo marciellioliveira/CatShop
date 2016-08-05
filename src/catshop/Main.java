@@ -24,11 +24,13 @@ public class Main extends javax.swing.JFrame implements ActionListener{
     
     private double valor = 0.00;
     
-    private final double valorCompraAutoClick = 0.50; //?
+   // private final double valorCompraAutoClick = 0.50; //?
     private double compra;
     private double cents1, cents2, cents3, cents4, cents5, cents6, cents7, cents8, cents9, cents10;
     private double somaDinheiro;
-    private String mensagemAutoClick;
+    
+    private double msg;
+    private String tratarMsg;
     
     Random gerarNumClicks = new Random(); 
     
@@ -59,8 +61,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         }
         
     }
-    
-    
+
     
     
     @Override
@@ -99,7 +100,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = valor + cents1;      
                             
                             BigDecimal bd1 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
-                                                                        
+                            
                             jLabelObjetivoJogo.setText(""+aleatorioNum1);
                             jLabelNivel.setText("2");
                             
@@ -328,12 +329,16 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         jButtonConfiguracao = new javax.swing.JButton();
         jButtonEditeSeuAnimal = new javax.swing.JButton();
         jPanelDinheiro1 = new javax.swing.JPanel();
-        jLabelDinheiro1 = new javax.swing.JLabel();
+        jLabelComprar = new javax.swing.JLabel();
         jLabelMsgPodeComprar = new javax.swing.JLabel();
         jSeparatorDinheiro1 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        jButtonAutoClick = new javax.swing.JButton();
         jButtonSalvarJogo = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jPanelDinheiro2 = new javax.swing.JPanel();
+        jLabelEstatistica = new javax.swing.JLabel();
+        jLabelMostrarEstatistica = new javax.swing.JLabel();
+        jSeparatorDinheiro2 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -548,20 +553,20 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         jPanelDinheiro1.setBackground(new java.awt.Color(255, 255, 255));
         jPanelDinheiro1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 51, 204), 1, true));
 
-        jLabelDinheiro1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabelDinheiro1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelDinheiro1.setText("Comprar");
+        jLabelComprar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelComprar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelComprar.setText("Comprar");
 
         jLabelMsgPodeComprar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabelMsgPodeComprar.setForeground(new java.awt.Color(0, 0, 255));
         jLabelMsgPodeComprar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 255));
-        jButton1.setText("AutoClick");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAutoClick.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButtonAutoClick.setForeground(new java.awt.Color(0, 0, 255));
+        jButtonAutoClick.setText("AutoClick");
+        jButtonAutoClick.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonAutoClickActionPerformed(evt);
             }
         });
 
@@ -572,12 +577,12 @@ public class Main extends javax.swing.JFrame implements ActionListener{
             .addGroup(jPanelDinheiro1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelDinheiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelDinheiro1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelComprar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanelDinheiro1Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addGroup(jPanelDinheiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelMsgPodeComprar, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(jButtonAutoClick, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
                             .addComponent(jSeparatorDinheiro1, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -586,11 +591,11 @@ public class Main extends javax.swing.JFrame implements ActionListener{
             jPanelDinheiro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelDinheiro1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelDinheiro1)
+                .addComponent(jLabelComprar)
                 .addGap(1, 1, 1)
                 .addComponent(jSeparatorDinheiro1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jButtonAutoClick)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelMsgPodeComprar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -609,17 +614,58 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         jButton2.setForeground(new java.awt.Color(0, 0, 255));
         jButton2.setText("Regra do Jogo");
 
+        jPanelDinheiro2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelDinheiro2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 51, 204), 1, true));
+
+        jLabelEstatistica.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabelEstatistica.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelEstatistica.setText("Estatística");
+
+        jLabelMostrarEstatistica.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelMostrarEstatistica.setForeground(new java.awt.Color(0, 0, 255));
+        jLabelMostrarEstatistica.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jPanelDinheiro2Layout = new javax.swing.GroupLayout(jPanelDinheiro2);
+        jPanelDinheiro2.setLayout(jPanelDinheiro2Layout);
+        jPanelDinheiro2Layout.setHorizontalGroup(
+            jPanelDinheiro2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDinheiro2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelDinheiro2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelEstatistica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanelDinheiro2Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addGroup(jPanelDinheiro2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelMostrarEstatistica, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                            .addComponent(jSeparatorDinheiro2, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanelDinheiro2Layout.setVerticalGroup(
+            jPanelDinheiro2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDinheiro2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelEstatistica)
+                .addGap(1, 1, 1)
+                .addComponent(jSeparatorDinheiro2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelMostrarEstatistica, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanelBackgroundLayout = new javax.swing.GroupLayout(jPanelBackground);
         jPanelBackground.setLayout(jPanelBackgroundLayout);
         jPanelBackgroundLayout.setHorizontalGroup(
             jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelBackgroundLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanelMeowClicks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelObjetivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanelMeowClicks, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanelObjetivo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelDinheiro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonClicks, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -651,6 +697,8 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButtonSalvarJogo))
                             .addGroup(jPanelBackgroundLayout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(jPanelDinheiro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -702,7 +750,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSalvarJogoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonAutoClickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAutoClickActionPerformed
        double qntDinheiro = Double.parseDouble(jLabelQntDinheiro.getText());
        
        if(qntDinheiro > 0.50) {
@@ -711,7 +759,6 @@ public class Main extends javax.swing.JFrame implements ActionListener{
        
        BigDecimal bdAP1 = new BigDecimal(compra).setScale(3, RoundingMode.HALF_EVEN);
 
-        String atualizarQntDinheiro = String.valueOf(compra);
         jLabelQntDinheiro.setText(""+bdAP1.doubleValue());
        
        } else {
@@ -720,7 +767,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
        JOptionPane.showMessageDialog(null, "Clique mais um pouquinho até ter dinheiro suficiente para comprar!");
         
        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonAutoClickActionPerformed
 
     /**
      * @param args the command line arguments
@@ -758,17 +805,19 @@ public class Main extends javax.swing.JFrame implements ActionListener{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonAutoClick;
     public javax.swing.JButton jButtonClicks;
     private javax.swing.JButton jButtonConfiguracao;
     private javax.swing.JButton jButtonEditeSeuAnimal;
     private javax.swing.JButton jButtonSalvarJogo;
     private javax.swing.JLabel jLabelClicks;
+    private javax.swing.JLabel jLabelComprar;
     private javax.swing.JLabel jLabelDinheiro;
-    private javax.swing.JLabel jLabelDinheiro1;
+    private javax.swing.JLabel jLabelEstatistica;
     private javax.swing.JLabel jLabelFases;
     private javax.swing.JLabel jLabelMeowClicks;
+    private javax.swing.JLabel jLabelMostrarEstatistica;
     private javax.swing.JLabel jLabelMsgPodeComprar;
     private javax.swing.JLabel jLabelNivel;
     private javax.swing.JLabel jLabelObjetivo;
@@ -778,11 +827,13 @@ public class Main extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JPanel jPanelBackground;
     private javax.swing.JPanel jPanelDinheiro;
     private javax.swing.JPanel jPanelDinheiro1;
+    private javax.swing.JPanel jPanelDinheiro2;
     private javax.swing.JPanel jPanelFases;
     private javax.swing.JPanel jPanelMeowClicks;
     private javax.swing.JPanel jPanelObjetivo;
     private javax.swing.JSeparator jSeparatorDinheiro;
     private javax.swing.JSeparator jSeparatorDinheiro1;
+    private javax.swing.JSeparator jSeparatorDinheiro2;
     private javax.swing.JSeparator jSeparatorFases;
     private javax.swing.JSeparator jSeparatorMeowClicks;
     private javax.swing.JSeparator jSeparatorObjetivo;
@@ -802,11 +853,27 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         this.valor = valor;
       
     }
-
-
-
-
-
+    
+        
+    public void setTratarMsg(String tratarMsg) {
+        this.tratarMsg =tratarMsg;
+        
+    } 
+    
+    public String getTratarMsg() {
+        
+        return tratarMsg;
+    }
+    
+    
+    
+//    public void setMensagem(double msg){
+//      this.msg = msg;
+//    }
+//    
+//    public double getMensagem() {
+//        return msg;
+//    }
 
 //    @Override
 //    public void actionPerformed(ActionEvent e) {
