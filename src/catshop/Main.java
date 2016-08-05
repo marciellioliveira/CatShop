@@ -101,6 +101,14 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             
                             BigDecimal bd1 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
                             
+                            if(bd1.doubleValue() < 0.50) {
+                                jLabelMsgPodeComprar.setText("Compra Trancada");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            } else {
+                                jLabelMsgPodeComprar.setText("Compre aqui");
+                                jLabelMsgPodeComprar.setForeground(Color.blue);
+                            }
+                            
                             jLabelObjetivoJogo.setText(""+aleatorioNum1);
                             jLabelNivel.setText("2");
                             
@@ -122,7 +130,15 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents2;    
                             
                             BigDecimal bd2 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
-                                                                             
+                            
+                            if(bd2.doubleValue() < 0.50) {
+                                jLabelMsgPodeComprar.setText("Compra Trancada");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            } else {
+                                jLabelMsgPodeComprar.setText("Compre aqui");
+                                jLabelMsgPodeComprar.setForeground(Color.blue);
+                            }
+                                                
                             jLabelObjetivoJogo.setText(""+aleatorioNum2);
                             jLabelNivel.setText("3");                            
                                 
@@ -142,7 +158,15 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents3;
                             
                             BigDecimal bd3 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
-                                          
+                            
+                            if(bd3.doubleValue() < 0.50) {
+                                jLabelMsgPodeComprar.setText("Compra Trancada");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            } else {
+                                jLabelMsgPodeComprar.setText("Compre aqui");
+                                jLabelMsgPodeComprar.setForeground(Color.blue);
+                            }
+                                                   
                             jLabelObjetivoJogo.setText(""+aleatorioNum3);
                             jLabelNivel.setText("4");
                             
@@ -162,6 +186,14 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents4;
                             
                             BigDecimal bd4 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                            
+                            if(bd4.doubleValue() < 0.50) {
+                                jLabelMsgPodeComprar.setText("Compra Trancada");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            } else {
+                                jLabelMsgPodeComprar.setText("Compre aqui");
+                                jLabelMsgPodeComprar.setForeground(Color.blue);
+                            }
                                                                 
                             jLabelObjetivoJogo.setText(""+aleatorioNum4);
                             jLabelNivel.setText("5");                        
@@ -182,6 +214,14 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents5;
                             
                             BigDecimal bd5 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                            
+                            if(bd5.doubleValue() < 0.50) {
+                                jLabelMsgPodeComprar.setText("Compra Trancada");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            } else {
+                                jLabelMsgPodeComprar.setText("Compre aqui");
+                                jLabelMsgPodeComprar.setForeground(Color.blue);
+                            }
                                                         
                             jLabelObjetivoJogo.setText(""+aleatorioNum5);
                             jLabelNivel.setText("6");
@@ -202,6 +242,14 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents6;
                             
                             BigDecimal bd6 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                            
+                            if(bd6.doubleValue() < 0.50) {
+                                jLabelMsgPodeComprar.setText("Compra Trancada");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            } else {
+                                jLabelMsgPodeComprar.setText("Compre aqui");
+                                jLabelMsgPodeComprar.setForeground(Color.blue);
+                            }
                 
                             jLabelObjetivoJogo.setText(""+aleatorioNum6);
                             jLabelNivel.setText("7");
@@ -223,6 +271,14 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             
                             BigDecimal bd7 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
                             
+                            if(bd7.doubleValue() < 0.50) {
+                                jLabelMsgPodeComprar.setText("Compra Trancada");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            } else {
+                                jLabelMsgPodeComprar.setText("Compre aqui");
+                                jLabelMsgPodeComprar.setForeground(Color.blue);
+                            }
+                            
                             jLabelObjetivoJogo.setText(""+aleatorioNum7);
                             jLabelNivel.setText("8");
                             
@@ -241,7 +297,15 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             cents8 = objJogo8Double / 100;
                             somaDinheiro = somaDinheiro + cents8;    
                             
-                            BigDecimal bd8 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);                            
+                            BigDecimal bd8 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);    
+                            
+                            if(bd8.doubleValue() < 0.50) {
+                                jLabelMsgPodeComprar.setText("Compra Trancada");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            } else {
+                                jLabelMsgPodeComprar.setText("Compre aqui");
+                                jLabelMsgPodeComprar.setForeground(Color.blue);
+                            }
                  
                             jLabelObjetivoJogo.setText(""+aleatorioNum8);
                             jLabelNivel.setText("9");
@@ -263,6 +327,14 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             
                             BigDecimal bd9 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
                             
+                            if(bd9.doubleValue() < 0.50) {
+                                jLabelMsgPodeComprar.setText("Compra Trancada");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            } else {
+                                jLabelMsgPodeComprar.setText("Compre aqui");
+                                jLabelMsgPodeComprar.setForeground(Color.blue);
+                            }
+                            
                             jLabelObjetivoJogo.setText(""+aleatorioNum9);
                             jLabelNivel.setText("10");
                             
@@ -282,6 +354,14 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                             somaDinheiro = somaDinheiro + cents10;    
                             
                             BigDecimal bd10 = new BigDecimal(somaDinheiro).setScale(3, RoundingMode.HALF_EVEN);
+                            
+                            if(bd10.doubleValue() < 0.50) {
+                                jLabelMsgPodeComprar.setText("Compra Trancada");
+                                jLabelMsgPodeComprar.setForeground(Color.red);
+                            } else {
+                                jLabelMsgPodeComprar.setText("Compre aqui");
+                                jLabelMsgPodeComprar.setForeground(Color.blue);
+                            }
                                                                                                         
                             jLabelObjetivoJogo.setText(""+aleatorioNum10);
                             jLabelNivel.setText("11");
@@ -426,7 +506,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                                 .addGap(13, 13, 13)
                                 .addComponent(jSeparatorFases, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabelNivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 12, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelFasesLayout.setVerticalGroup(
@@ -666,16 +746,16 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                         .addComponent(jButtonConfiguracao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jPanelDinheiro2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addComponent(jButtonClicks, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonClicks, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanelFases, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelDinheiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonEditeSeuAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelDinheiro1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonSalvarJogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonSalvarJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
         );
         jPanelBackgroundLayout.setVerticalGroup(
             jPanelBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -720,7 +800,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
             .addComponent(jPanelBackground, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(826, 562));
+        setSize(new java.awt.Dimension(835, 562));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -758,6 +838,14 @@ public class Main extends javax.swing.JFrame implements ActionListener{
        compra = qntDinheiro - 0.50;
        
        BigDecimal bdAP1 = new BigDecimal(compra).setScale(3, RoundingMode.HALF_EVEN);
+       
+        if(bdAP1.doubleValue() < 0.50) {
+            jLabelMsgPodeComprar.setText("Compra Trancada");
+            jLabelMsgPodeComprar.setForeground(Color.red);
+        } else {
+            jLabelMsgPodeComprar.setText("Compre aqui");
+            jLabelMsgPodeComprar.setForeground(Color.blue);
+                            }
 
         jLabelQntDinheiro.setText(""+bdAP1.doubleValue());
        
