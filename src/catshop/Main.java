@@ -3,10 +3,13 @@ package catshop;
 import configuracao.Configuracao;
 import escolheranimal.EscolherAnimal;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.net.URL;
 import java.util.Random;
 import javax.swing.JOptionPane;
 
@@ -37,8 +40,12 @@ public class Main extends javax.swing.JFrame implements ActionListener{
     public Main() {
         
         initComponents();
-
-        jButtonClicks.addActionListener(this);        
+        
+        jButtonClicks.addActionListener(this);     
+        
+        URL url = this.getClass().getResource("/imagens/icon.png");
+        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        this.setIconImage(imagemTitulo);
         
         int reply = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
         if(reply == JOptionPane.YES_OPTION) {
@@ -61,6 +68,7 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         }
         
     }
+    
 
     
     
