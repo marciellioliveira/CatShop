@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.net.URL;
 import java.util.Random;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -44,13 +45,13 @@ public class Main extends javax.swing.JFrame implements ActionListener{
         jButtonClicks.addActionListener(this);     
         
         URL url = this.getClass().getResource("/imagens/icon.png");
-        Image imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
-        this.setIconImage(imagemTitulo);
+        Image imgTitulo = Toolkit.getDefaultToolkit().getImage(url);
+        this.setIconImage(imgTitulo);
         
-        int reply = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
-        if(reply == JOptionPane.YES_OPTION) {
+       // int reply = JOptionPane.showConfirmDialog(null, message, title, JOptionPane.YES_NO_OPTION);
+       // if(reply == JOptionPane.YES_OPTION) {
 
-            JOptionPane.showMessageDialog(null, "Divirta-se!");
+          //  JOptionPane.showMessageDialog(null, "Divirta-se!");
                        
                 int aleatorioNum0 = gerarNumClicks.nextInt(10)+10;  
                 jLabelObjetivoJogo.setText(""+aleatorioNum0);
@@ -60,12 +61,12 @@ public class Main extends javax.swing.JFrame implements ActionListener{
                 jLabelMsgPodeComprar.setText("Compra trancada!");
                 jLabelMsgPodeComprar.setForeground(Color.red);
                         
-        } else {
+      //  } else {
             
-            JOptionPane.showMessageDialog(null, "Tchau.");
-            System.exit(0);
+           // JOptionPane.showMessageDialog(null, "Tchau.");
+          //  System.exit(0);
             
-        }
+      //  }
         
     }
     
